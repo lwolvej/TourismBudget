@@ -50,7 +50,6 @@ void file_write() {
         p = (char *) malloc(sizeof(char));
         sprintf(p, "%.2lf", MIN_BUDGET);
         fprintf(file, strcat(p, " "));
-        free(p);
 
         //写入加油的站点的个数
         int book_1[51], count;
@@ -62,15 +61,19 @@ void file_write() {
         char *p1 = (char *) malloc(sizeof(char));
         sprintf(p1, "%d", count);
         fprintf(file, strcat(p1, "\n"));
-        free(p1);
 
         //写入停靠的站点
+        char *p2;
         for(i = 0; i < count; i++) {
-            char *p2 = (char*) malloc(sizeof(char));
+            p2 = (char*) malloc(sizeof(char));
             sprintf(p2, "%d", book_1[i]);
             fprintf(file, strcat(p2, " "));
             free(p2);
         }
+        
+        //释放资源
+        free(p1);
+        free(p);
     }
 }
 

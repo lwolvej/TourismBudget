@@ -10,6 +10,7 @@
 
 #define MAX_NUM  0xFFFFFFFF
 
+//最终的结果
 double MIN_BUDGET;
 
 //距离
@@ -36,7 +37,7 @@ Station stations[51];
 int vis[51];
 
 /**
- *
+ *深搜操作
  * @param past 上一次加油的站点
  * @param now 当前的站点
  * @param money 花费的钱
@@ -45,6 +46,7 @@ int vis[51];
 void dfs(int past, int now, double money, double current_tank, int book[]);
 
 /**
+ * 判断当前站点的加油策略
  * @param now 当前的站点
  * @param current_tank 当前的油量
  * @return 1:必须加油;2.不需要加油;3.可以加可以不加
